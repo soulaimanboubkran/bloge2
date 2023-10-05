@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "next-auth": "^4.23.2",
     "react": "latest",
     "react-dom": "latest",
     "react-quill": "^2.0.0"
