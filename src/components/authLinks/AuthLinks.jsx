@@ -13,7 +13,7 @@ const AuthLinks = () => {
     <>
      {status === "unauthenticated" ?(
         <Link href="/login" >Login</Link>
-     ):(
+     ):( 
         <>
         <Link href="/write" >write</Link>
         <span className={styles.link} onClick={signOut}>Logout</span></>
