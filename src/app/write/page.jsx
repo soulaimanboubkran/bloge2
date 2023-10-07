@@ -5,12 +5,24 @@ import styles from "./writePage.module.css";
 import {  useState } from "react";
 import "react-quill/dist/quill.bubble.css";
 import ReactQuill from "react-quill";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 
 const WritePage = () => {
-
+    const [value, setValue] = useState("");
     const [open, setOpen] = useState(false);
+    const { status } = useSession();
+
+    const router = useRouter();
   
+    if (status === "loading") {
+      return <div className={styles.loading}>Loading...</div>;
+    }
+  
+    if (status === "unauthenticated") {
+      router.push("/")
+    }
 
   return (
     <div className={styles.container}>
@@ -56,7 +68,8 @@ const WritePage = () => {
         <ReactQuill
           className={styles.textArea}
           theme="bubble"
-        
+          value={value}
+          onChange={setValue}
           placeholder="Tell your story..."
         />
       </div>
