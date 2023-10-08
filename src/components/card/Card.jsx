@@ -14,7 +14,7 @@ const Card = ({key,item}) => {
           <span className={styles.date}>
             11.02.2023
           </span>
-          <span className={styles.category}>CULTURE</span>
+          <span className={styles.category}>{item.catSlug}</span>
         </div>
         <Link  href={``}>
           <h1>{item.title}</h1>
