@@ -31,7 +31,7 @@ const status = "authenticated"
                 <div className={styles.user}>
             
                     <Image
-                      src={''}
+                      src={'/coding.png'}
                       alt=""
                       width={50}
                       height={50}
