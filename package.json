@@ -17,13 +17,14 @@
     "next-auth": "^4.23.2",
     "react": "latest",
     "react-dom": "latest",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
-    "prisma": "^5.4.1"
+    "prisma": "^5.4.2"
   }
 }
