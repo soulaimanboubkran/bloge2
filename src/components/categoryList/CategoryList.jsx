@@ -3,7 +3,7 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 const getData = async () => {
-  const res = await fetch("/api/categories", {
+  const res = await fetch("https://bloge-sooty.vercel.app/api/categories", {
     cache: "no-store",
   });
 
