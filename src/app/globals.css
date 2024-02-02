@@ -13,12 +13,8 @@
     margin: 0;
     box-sizing: border-box;
   }
-  
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-  
+
+
   a {
     color: inherit;
     text-decoration: none;
@@ -42,6 +38,7 @@
     min-height: 100vh;
     background-color: var(--bg);
     color: var(--textColor);
+    max-width: 1886px;
   }
   
   .wrapper {

@@ -9,7 +9,7 @@ export const GET = async (req) => {
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get("page")) || 1;
     const cat = searchParams.get("cat"); // Parse the page parameter as an integer, default to 1 if not provided or not a valid integer.
-    const POST_PER_PAGE = 2;
+    const POST_PER_PAGE = 4;
     const query={
         take: POST_PER_PAGE,
         skip: POST_PER_PAGE * (page - 1),
