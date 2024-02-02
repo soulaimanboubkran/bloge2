@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./writePage.module.css";
 import {  useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
-import dynamic from 'next/dynamic';
+
 
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -16,15 +16,19 @@ import {
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 
+
+
+
 const WritePage = () => {
 
-const ReactQuill = dynamic(()=>import('react-quill'),{ssr:false});
+
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+  const [progress, setProgress] = useState(0);
 //storing files img 
   useEffect(() => {
     const storage = getStorage(app);
@@ -39,6 +43,7 @@ const ReactQuill = dynamic(()=>import('react-quill'),{ssr:false});
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProgress(progress);
           console.log("Upload is " + progress + "% done");
           switch (snapshot.state) {
             case "paused":
@@ -78,8 +83,9 @@ const ReactQuill = dynamic(()=>import('react-quill'),{ssr:false});
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+
       const handleSubmit = async () => {
-        const res = await fetch("https://bloge-sooty.vercel.app/api/posts", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_URL}/api/posts`, {
           method: "POST",
           body: JSON.stringify({
             title,
@@ -136,14 +142,12 @@ const ReactQuill = dynamic(()=>import('react-quill'),{ssr:false});
             </button>
           </div>
         )}
-        <ReactQuill
-          className={styles.textArea}
-          theme="bubble"
-          value={value}
-          onChange={setValue}
-          placeholder="Tell your story..."
-        />
+       
       </div>
+      <progress value={progress} max="100" className={styles.progress} />
+        <textarea className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={value}
+          onChange={(e)=>setValue(e.target.value)}
+          placeholder="Tell your story..."></textarea>
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>

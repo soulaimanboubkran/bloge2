@@ -7,7 +7,7 @@ import Pagination from "../pagination/Pagination";
 
 
 const getData = async (page,cat) => {
-  const res = await fetch(`https://bloge-sooty.vercel.app/api/posts?page=${page}&cat=${cat || ""}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_URL}/api/posts?page=${page}&cat=${cat || ""}`, {
     cache: "no-store",
   });
 
