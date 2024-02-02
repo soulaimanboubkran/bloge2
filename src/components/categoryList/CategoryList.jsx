@@ -3,7 +3,7 @@ import styles from "./categoryList.module.css";
 import Link from "next/link";
 import Image from "next/image";
 const getData = async () => {
-  const res = await fetch("http://localhost:3001/api/categories", {
+  const res = await fetch("/api/categories", {
     cache: "no-store",
   });
 
