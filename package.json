@@ -15,7 +15,7 @@
     "firebase": "^10.4.0",
     "mongodb": "^6.1.0",
     "next": "^14.1.0",
-    "next-auth": "^4.23.2",
+    "next-auth": "^4.24.5",
     "react": "latest",
     "react-dom": "latest",
     "react-quill": "^2.0.0",
