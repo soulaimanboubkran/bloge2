@@ -7,7 +7,7 @@ import Pagination from "../pagination/Pagination";
 
 
 const getData = async (page,cat) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_URL}/api/posts?page=${page}&cat=${cat || ''}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_URL}/api/posts?page=${page}&cat=${cat || ''}&sortBy=desc`, {
     cache: "no-store",
   });
 
@@ -21,7 +21,7 @@ const getData = async (page,cat) => {
 
 const CardList = async ({page,cat}) => {
   const {posts, count } =await getData(page,cat)
-  
+
   const POST_PER_PAGE =4;
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
@@ -32,7 +32,7 @@ const CardList = async ({page,cat}) => {
       <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
    {posts?.map((item)=>(
-    <Card item={item} key={item._id}/>
+    <Card item={item} key={item.id}/>
 ))}
        
       
@@ -43,4 +43,4 @@ const CardList = async ({page,cat}) => {
   );
 };
 
-export default CardList;
+export default CardList; 

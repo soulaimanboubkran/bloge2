@@ -3,8 +3,9 @@ import styles from "./card.module.css";
 import Link from "next/link";
 import React from "react";
 const Card = ({key,item}) => {
+
   return (
-    <div className={styles.container} key={key}>
+    <div className={`${styles.container} bg-emerald-50 dark:text-gray-800`} key={key}>
     {item.img && (
       <div className={styles.imageContainer}>
         <Image src={item.img} alt="" fill className={styles.image} />

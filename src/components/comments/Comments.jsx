@@ -35,13 +35,13 @@ const handleSubmit=async()=>{
     <div className={styles.container}>
       <h1 className={styles.title}>Comments</h1>
       {status === "authenticated" ? (
-        <div className={styles.write}>
+        <div className={`${styles.write} flex`}>
           <textarea
             placeholder="write a comment..."
             className={styles.input}
             onChange={(e) => setDesc(e.target.value)}
           />
-          <button className={styles.button}  onClick={handleSubmit}>
+          <button className={`${styles.button}  rounded-xl`} onClick={handleSubmit}>
             Send
           </button>
         </div>
