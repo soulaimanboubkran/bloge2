@@ -49,6 +49,23 @@
   
   @media screen and (max-width: 1280px) {
     .imageContainer {
-      display: none;
+      margin-bottom: 5px;
+      display: block;
+    }
+  }
+    
+  @media screen and (max-width: 1280px) {
+    .container {
+      
+      display: block;
+      
+    }
+  }
+      
+  @media screen and (max-width: 1280px) {
+    .textContainer {
+      padding: 10px;
+      gap:0;
+      
     }
   }
