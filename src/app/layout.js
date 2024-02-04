@@ -16,6 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/t-solid.svg"  sizes="any" />
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
